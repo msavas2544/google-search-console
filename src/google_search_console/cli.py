@@ -167,6 +167,8 @@ def main(argv: Optional[List[str]] = None) -> None:
         args.func(args)
     except (SearchConsoleError, ValueError) as exc:
         sys.exit(f"error: {exc}")
+    except FileNotFoundError as exc:
+        sys.exit(f"error: file not found: {exc.filename}")
 
 
 if __name__ == "__main__":  # pragma: no cover

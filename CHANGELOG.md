@@ -8,3 +8,4 @@
 - Property normalisation (`example.com` → `sc-domain:example.com`, trailing slash for URL-prefix properties).
 - OAuth 2.0 with PKCE and refresh, service accounts through `google-auth`, retries with backoff, typed errors.
 - `gsc` command line: `login`, `sites`, `query`, `inspect`, `sitemaps`.
+- Verified against the live API with a real property.

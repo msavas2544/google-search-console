@@ -95,3 +95,9 @@ def test_cli_errors_exit_cleanly(api, run) -> None:
 def test_cli_requires_token(tmp_path) -> None:
     with pytest.raises(SystemExit, match="gsc login"):
         cli.main(["--token", str(tmp_path / "none.json"), "sites"])
+
+
+def test_cli_missing_client_secrets_file(tmp_path) -> None:
+    with pytest.raises(SystemExit, match="file not found"):
+        cli.main(["--token", str(tmp_path / "t.json"), "login",
+                  "--client-secrets", str(tmp_path / "missing.json")])

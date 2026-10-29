@@ -98,7 +98,7 @@ The API allows 2,000 inspections per day and 600 per minute per property.
 ### Properties and sitemaps
 
 ```python
-gsc.sites.list()                       # [{"siteUrl": "sc-domain:example.com", "permissionLevel": "SITE_OWNER"}]
+gsc.sites.list()                       # [{"siteUrl": "sc-domain:example.com", "permissionLevel": "siteOwner"}]
 gsc.sites.add("https://example.com/")  # needs the full scope
 gsc.sitemaps.list("sc-domain:example.com")
 gsc.sitemaps.submit("sc-domain:example.com", "https://example.com/sitemap.xml")
@@ -137,7 +137,7 @@ The Mobile-Friendly Test API (`urlTestingTools.mobileFriendlyTest`) was retired 
 
 ## Status
 
-Version 0.1, alpha. The request and response shapes follow the official discovery document (revision 2026-10-28) and are covered by 43 unit tests on Python 3.9–3.13 against mocked HTTP. Please open an issue if a live response differs.
+Version 0.1, alpha. The request and response shapes follow the official discovery document (revision 2026-10-28) and are covered by 44 unit tests on Python 3.9–3.13 against mocked HTTP. Login, `sites`, Search Analytics (query and date dimensions), URL Inspection and sitemaps have also been exercised against the live API with a real property (October 2026). Please open an issue if a live response differs.
 
 This is a community project, not affiliated with or endorsed by Google. "Google Search Console" is a trademark of Google LLC.
 

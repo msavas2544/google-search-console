@@ -161,11 +161,11 @@ def test_sites_and_sitemaps(api, gsc) -> None:
     api.add("GET", "/webmasters/v3/sites/sc-domain", {"siteUrl": "sc-domain:example.com",
                                                        "permissionLevel": "SITE_OWNER"})
     api.add("GET", "/webmasters/v3/sites", {"siteEntry": [
-        {"siteUrl": "sc-domain:example.com", "permissionLevel": "SITE_OWNER"}]})
+        {"siteUrl": "sc-domain:example.com", "permissionLevel": "siteOwner"}]})
     api.add("PUT", "/webmasters/v3/sites/", httpx.Response(204))
     api.add("DELETE", "/webmasters/v3/sites/", httpx.Response(204))
 
-    assert gsc.sites.list()[0]["permissionLevel"] == "SITE_OWNER"
+    assert gsc.sites.list()[0]["permissionLevel"] == "siteOwner"
     assert gsc.sites.get("example.com")["siteUrl"] == "sc-domain:example.com"
     gsc.sites.add("https://new.example.com")
     assert api.requests[-1].url.raw_path.decode().endswith("https%3A%2F%2Fnew.example.com%2F")
